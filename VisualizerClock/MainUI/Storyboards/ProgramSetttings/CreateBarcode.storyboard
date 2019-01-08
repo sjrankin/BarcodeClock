@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PIp-cc-UZ6">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="AHd-xj-Mi5">
+            <objects>
+                <navigationController storyboardIdentifier="CreateBarcodeStoryboard" toolbarHidden="NO" id="PIp-cc-UZ6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="0a7-Aw-3tF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <viewLayoutGuide key="safeArea" id="7iX-23-5Ss"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="grN-iE-7Uu">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="7Lc-q5-X91" kind="relationship" relationship="rootViewController" id="eIT-Uw-V1J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hge-Vm-TU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5487" y="1034"/>
+        </scene>
+        <!--Create a Barcode-->
+        <scene sceneID="hwP-xA-Tas">
+            <objects>
+                <tableViewController title="Create a Barcode" id="7Lc-q5-X91" customClass="BarcodeCreator" customModule="Visualizer_Clock" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Cc-Dy-FjW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="x4b-Z4-TjC"/>
+                        <sections>
+                            <tableViewSection id="4m8-Us-Ufw">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="120" id="ZDb-PD-RCE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZDb-PD-RCE" id="7dX-Py-Ble">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Barcode contents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbO-VJ-S6w">
+                                                    <rect key="frame" x="20" y="11" width="136" height="21"/>
+                                                    <viewLayoutGuide key="safeArea" id="z2o-cf-97v"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text to encode." minimumFontSize="16" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Zcy-qp-2dD">
+                                                    <rect key="frame" x="20" y="40" width="374" height="30"/>
+                                                    <viewLayoutGuide key="safeArea" id="05X-pW-d7T"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                    <connections>
+                                                        <action selector="HandleStartedEditing:" destination="7Lc-q5-X91" eventType="editingDidBegin" id="uJl-fT-agW"/>
+                                                        <action selector="HandleTextAvailable:" destination="7Lc-q5-X91" eventType="primaryActionTriggered" id="t58-qG-Ki3"/>
+                                                    </connections>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use barcode contents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qd-xA-ihx">
+                                                    <rect key="frame" x="20" y="85" width="169" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1KD-bV-Di2">
+                                                    <rect key="frame" x="345" y="80" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="HandleBarcodeContentsChanged:" destination="7Lc-q5-X91" eventType="primaryActionTriggered" id="Qdo-9t-FTg"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2qd-xA-ihx" firstAttribute="leading" secondItem="Zcy-qp-2dD" secondAttribute="leading" id="2xx-n3-NFE"/>
+                                                <constraint firstItem="1KD-bV-Di2" firstAttribute="top" secondItem="Zcy-qp-2dD" secondAttribute="bottom" constant="10" id="Cxf-wY-CDX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2qd-xA-ihx" secondAttribute="bottom" constant="3" id="Ess-cT-3Ps"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Zcy-qp-2dD" secondAttribute="trailing" id="Ezc-4M-Kz5"/>
+                                                <constraint firstItem="Zcy-qp-2dD" firstAttribute="leading" secondItem="lbO-VJ-S6w" secondAttribute="leading" id="F6J-7K-nba"/>
+                                                <constraint firstItem="Zcy-qp-2dD" firstAttribute="top" secondItem="lbO-VJ-S6w" secondAttribute="bottom" constant="8" symbolic="YES" id="HBD-G7-tY5"/>
+                                                <constraint firstItem="2qd-xA-ihx" firstAttribute="centerY" secondItem="1KD-bV-Di2" secondAttribute="centerY" id="ThP-Aw-ykq"/>
+                                                <constraint firstItem="Zcy-qp-2dD" firstAttribute="leading" secondItem="7dX-Py-Ble" secondAttribute="leadingMargin" id="WGe-sB-RzZ"/>
+                                                <constraint firstItem="1KD-bV-Di2" firstAttribute="trailing" secondItem="Zcy-qp-2dD" secondAttribute="trailing" id="raV-Km-7QM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="119" id="8X0-Vu-TwT">
+                                        <rect key="frame" x="0.0" y="120" width="414" height="119"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8X0-Vu-TwT" id="WRc-Sc-bKP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="118.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select barcode type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nt-UH-AWK">
+                                                    <rect key="frame" x="20" y="11" width="154" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wqh-sX-Fy7">
+                                                    <rect key="frame" x="20" y="40" width="374" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="ksc-I1-hyZ"/>
+                                                    </constraints>
+                                                    <viewLayoutGuide key="safeArea" id="ab7-IB-Ift"/>
+                                                    <segments>
+                                                        <segment title="QR Code"/>
+                                                        <segment title="Aztec"/>
+                                                        <segment title="PDF 417"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="HandleBarcodeType1Changed:" destination="7Lc-q5-X91" eventType="primaryActionTriggered" id="TqC-Bs-rlM"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Fqd-F5-8zO">
+                                                    <rect key="frame" x="20" y="74" width="374" height="29"/>
+                                                    <viewLayoutGuide key="safeArea" id="qUo-LU-u21"/>
+                                                    <segments>
+                                                        <segment title="Code 11" enabled="NO"/>
+                                                        <segment title="Code 128"/>
+                                                        <segment title="Pharma"/>
+                                                        <segment title="POSTNET"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="HandleBarcodeType2Changed:" destination="7Lc-q5-X91" eventType="primaryActionTriggered" id="oxE-Cv-M7I"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wqh-sX-Fy7" secondAttribute="bottom" constant="40" id="Cu5-lX-xtx"/>
+                                                <constraint firstItem="Fqd-F5-8zO" firstAttribute="trailing" secondItem="wqh-sX-Fy7" secondAttribute="trailing" id="KYM-fe-Gwc"/>
+                                                <constraint firstItem="Fqd-F5-8zO" firstAttribute="bottom" secondItem="WRc-Sc-bKP" secondAttribute="bottomMargin" constant="-6" id="OBn-eB-eqA"/>
+                                                <constraint firstItem="wqh-sX-Fy7" firstAttribute="leading" secondItem="4nt-UH-AWK" secondAttribute="leading" id="XVB-F9-xh9"/>
+                                                <constraint firstItem="Fqd-F5-8zO" firstAttribute="leading" secondItem="wqh-sX-Fy7" secondAttribute="leading" id="as6-yo-hMo"/>
+                                                <constraint firstItem="wqh-sX-Fy7" firstAttribute="trailing" secondItem="WRc-Sc-bKP" secondAttribute="trailingMargin" id="dKi-Rw-5t6"/>
+                                                <constraint firstItem="wqh-sX-Fy7" firstAttribute="leading" secondItem="WRc-Sc-bKP" secondAttribute="leadingMargin" id="tfi-4J-6zk"/>
+                                                <constraint firstItem="wqh-sX-Fy7" firstAttribute="top" secondItem="4nt-UH-AWK" secondAttribute="bottom" constant="8" symbolic="YES" id="zeY-W7-1GA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="138" id="EBe-ja-Uzm">
+                                        <rect key="frame" x="0.0" y="239" width="414" height="138"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EBe-ja-Uzm" id="k7X-fl-u9X">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="137.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgZ-PC-Ohh">
+                                                    <rect key="frame" x="20" y="11" width="72" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2m-yq-cHp">
+                                                    <rect key="frame" x="20" y="80" width="374" height="43"/>
+                                                    <string key="text">Determines the size of the saved image. Set before saving the image. Native is smallest. The sample image does not necessarily reflect the saved image size.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MpM-du-jcH">
+                                                    <rect key="frame" x="20" y="40" width="374" height="29"/>
+                                                    <segments>
+                                                        <segment title="Native"/>
+                                                        <segment title="Small"/>
+                                                        <segment title="Medium"/>
+                                                        <segment title="Large"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MpM-du-jcH" firstAttribute="leading" secondItem="kgZ-PC-Ohh" secondAttribute="leading" id="0YF-kr-P56"/>
+                                                <constraint firstItem="MpM-du-jcH" firstAttribute="leading" secondItem="x2m-yq-cHp" secondAttribute="leading" id="33z-Xa-eHD"/>
+                                                <constraint firstItem="kgZ-PC-Ohh" firstAttribute="top" secondItem="k7X-fl-u9X" secondAttribute="topMargin" id="CvU-GD-Ir9"/>
+                                                <constraint firstItem="MpM-du-jcH" firstAttribute="trailing" secondItem="k7X-fl-u9X" secondAttribute="trailingMargin" id="MWr-Is-VJ5"/>
+                                                <constraint firstItem="MpM-du-jcH" firstAttribute="top" secondItem="kgZ-PC-Ohh" secondAttribute="bottom" constant="8" symbolic="YES" id="OeY-SF-6dQ"/>
+                                                <constraint firstItem="MpM-du-jcH" firstAttribute="trailing" secondItem="x2m-yq-cHp" secondAttribute="trailing" id="c8A-e4-FqY"/>
+                                                <constraint firstItem="kgZ-PC-Ohh" firstAttribute="leading" secondItem="k7X-fl-u9X" secondAttribute="leadingMargin" id="nhB-v3-RzJ"/>
+                                                <constraint firstItem="x2m-yq-cHp" firstAttribute="top" secondItem="MpM-du-jcH" secondAttribute="bottom" constant="12" id="xlW-Qn-Pjl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="90" id="bfY-6K-H2E">
+                                        <rect key="frame" x="0.0" y="377" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bfY-6K-H2E" id="XjP-e6-Zch">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xsn-Lx-JAl">
+                                                    <rect key="frame" x="347" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="HandleSettingsSwitchChanged:" destination="7Lc-q5-X91" eventType="primaryActionTriggered" id="bl1-Re-ImK"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use barcode settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZJ-CB-vLU">
+                                                    <rect key="frame" x="20" y="11" width="164" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use your settings for generation of barcodes (such as for shape of nodes or the overall barcode itself)." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQQ-zK-Fmw">
+                                                    <rect key="frame" x="20" y="45" width="374" height="45"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xsn-Lx-JAl" secondAttribute="trailing" constant="-2" id="Ekz-i1-6OO"/>
+                                                <constraint firstItem="GQQ-zK-Fmw" firstAttribute="top" secondItem="Xsn-Lx-JAl" secondAttribute="bottom" constant="8" id="Q2e-qk-xR9"/>
+                                                <constraint firstItem="Xsn-Lx-JAl" firstAttribute="centerY" secondItem="zZJ-CB-vLU" secondAttribute="centerY" id="VZh-r3-ZdS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GQQ-zK-Fmw" secondAttribute="bottom" constant="-11" id="bEF-ef-cnK"/>
+                                                <constraint firstItem="GQQ-zK-Fmw" firstAttribute="top" secondItem="Xsn-Lx-JAl" secondAttribute="bottom" constant="8" symbolic="YES" id="dfR-t1-04a"/>
+                                                <constraint firstItem="GQQ-zK-Fmw" firstAttribute="leading" secondItem="zZJ-CB-vLU" secondAttribute="leading" id="hLc-cm-Jg2"/>
+                                                <constraint firstItem="GQQ-zK-Fmw" firstAttribute="leading" secondItem="XjP-e6-Zch" secondAttribute="leadingMargin" id="jis-RW-raR"/>
+                                                <constraint firstItem="GQQ-zK-Fmw" firstAttribute="trailing" secondItem="XjP-e6-Zch" secondAttribute="trailingMargin" id="rVh-4Q-d1X"/>
+                                                <constraint firstItem="Xsn-Lx-JAl" firstAttribute="top" secondItem="XjP-e6-Zch" secondAttribute="topMargin" constant="-5" id="xI9-LD-sFa"/>
+                                                <constraint firstItem="GQQ-zK-Fmw" firstAttribute="top" secondItem="Xsn-Lx-JAl" secondAttribute="bottom" constant="8" symbolic="YES" id="z3G-6h-QPp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="221" id="h7O-fk-Ski">
+                                        <rect key="frame" x="0.0" y="467" width="414" height="221"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h7O-fk-Ski" id="xpI-z5-Cx9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="220.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jay-HQ-OZY">
+                                                    <rect key="frame" x="20" y="11" width="374" height="199"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <viewLayoutGuide key="safeArea" id="10x-cX-Ggr"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7Lc-q5-X91" id="KaU-cr-8yA"/>
+                            <outlet property="delegate" destination="7Lc-q5-X91" id="7wN-R6-KHo"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" image="ClockHome" id="Odz-zi-bRY"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9hP-PN-9u2"/>
+                        <barButtonItem title="Print" id="4Cq-yA-OwW">
+                            <connections>
+                                <action selector="HandlePrintPressed:" destination="7Lc-q5-X91" id="IjC-AC-0LC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="B45-dK-xtZ"/>
+                        <barButtonItem systemItem="save" id="4dS-up-5dp">
+                            <connections>
+                                <action selector="HandleSavePressed:" destination="7Lc-q5-X91" id="4qD-08-Ybd"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Create a Barcode" id="2Nd-Gd-e5c">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="dgq-Zl-whN">
+                            <connections>
+                                <action selector="HandleDonePressed:" destination="7Lc-q5-X91" id="nuF-7O-L4i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="BarcodeSettingsSwitch" destination="Xsn-Lx-JAl" id="fLl-x1-qfk"/>
+                        <outlet property="BarcodeTypeSegment1" destination="wqh-sX-Fy7" id="PsX-by-ThK"/>
+                        <outlet property="BarcodeTypeSegment2" destination="Fqd-F5-8zO" id="wIw-qk-Opw"/>
+                        <outlet property="BarcodeUIView" destination="Jay-HQ-OZY" id="aFE-2q-MAN"/>
+                        <outlet property="PrintButton" destination="4Cq-yA-OwW" id="ofH-Ip-3xA"/>
+                        <outlet property="SaveBarcodeButton" destination="4dS-up-5dp" id="Qc6-XG-3xT"/>
+                        <outlet property="SaveSizeSegment" destination="MpM-du-jcH" id="rkm-nz-mkV"/>
+                        <outlet property="ToEncode" destination="Zcy-qp-2dD" id="gGJ-vX-Yqf"/>
+                        <outlet property="UseBarcodeContentsSwitch" destination="1KD-bV-Di2" id="bxv-vQ-N8T"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Q1-dt-1X5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6482.608695652174" y="1031.9196428571429"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ClockHome" width="72" height="63"/>
+    </resources>
+</document>
